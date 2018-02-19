@@ -1,0 +1,51 @@
+.brand{
+    background-color: #fff;
+    padding: 1.25rem 0;
+    border-bottom: 2px solid #b7b7b7;
+}
+
+.brand-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-media{
+    flex-basis: 30%;
+}
+
+.media-title{
+    margin-bottom: 1rem;
+}
+
+.media-text{
+    color: #ccc;
+}
+
+.brand-social{
+    flex-basis: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.space-item{
+    margin-right: 4rem;
+
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+.social-img{
+    width: 3rem;
+    height: 3rem;
+    fill: #ccc;
+    transition: all ease-in-out 200ms;
+    &:hover{
+        fill: #ff9b51;
+    }
+    &:active{
+        transform: scale(0.98);
+    }
+
+}

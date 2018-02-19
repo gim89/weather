@@ -1,0 +1,79 @@
+html, body, div, span,
+h1, h2, h3, h4, h5, h6,
+p, a, em, img, i, ol, ul, li,
+form, label, article, aside,
+figure, figcaption, footer,
+header, main, nav, section, button{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+
+body{
+    min-height: 100vh;
+    background-color: #918e93;
+    font: 1rem/1.3 "Ralleway Regular", Arial;
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    display: inline-block;
+    font: 600 0.875rem/1.3 "OpenSansSemiBold";
+    color: #fff;
+}
+
+h2{
+    font: 2.25rem/1 "OpenSansRegular";
+    color: #000;
+}
+
+h3{
+    font: 1.25/1 "OpenSansBold";
+    color: #000;
+}
+
+p{
+    font: 0.875rem/1.3 "OpenSansLight";
+    color: #fff;
+}
+
+form{
+    font: 0.875rem/1 "OpenSansRegular";
+    color: #bdbdbd;
+}
+
+.btn-transparent,
+.btn-orange{
+	padding: 0.625rem 1.875rem;
+	font: 0.925rem "OpenSansSemiBold";
+}
+
+.btn-transparent{
+	border: 1px solid #fff;
+	&:hover{
+		background-color: #fff;
+        color: #ff9b51;
+        transition: all ease-in-out 200ms;
+		text-decoration: none;
+	}
+	&:active{
+		transform: scale(0.98);
+		transition: all ease-in-out 200ms;
+	}
+}
+
+.btn-orange{
+	border-radius: 2px;
+}

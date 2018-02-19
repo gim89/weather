@@ -1,0 +1,1 @@
+data.users.map(elem => render(data.parent, elem));
