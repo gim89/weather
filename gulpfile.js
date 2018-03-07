@@ -18,8 +18,6 @@ var gulp         = require('gulp'),
 gulp.task('html', function() {
     return gulp.src('src/html/*.html')
         .pipe(rigger())
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({stream: true}))
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist'))
@@ -35,8 +33,6 @@ gulp.task('css', function() {
         .pipe(mmq({
             log: false
         }))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(browserSync.reload({stream: true}))
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/css'))
@@ -44,7 +40,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src(['src/sass/*.scss', 'src/sass/bootstrap/*.scss'])
+    return gulp.src('src/sass/*.scss')
         .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 15 versions', '> 1%', 'ie 9', 'ie 8', 'ie 7'],
@@ -53,8 +49,6 @@ gulp.task('sass', function() {
         .pipe(mmq({
             log: false
         }))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(browserSync.reload({stream: true}))
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
         .pipe(flatten())
@@ -64,28 +58,28 @@ gulp.task('sass', function() {
 
 gulp.task('js', function() {
     return gulp.src('src/js/*.js')
-    .pipe(rigger())
-    .pipe(
-        babel({
-            "presets": [
-                ["env", {
-                    "targets": {
-                        "browsers": ["last 2 versions", "safari >= 7"]
-                    }
-                }]
-            ]
-})
-    )
-    .pipe(uglify('scripts.min.js'))
-    .pipe(gulp.dest('dist/js'))
-    .pipe(browserSync.reload({stream: true}));
+        .pipe(rigger())
+        .pipe(
+            babel({
+                "presets": [
+                    ["env", {
+                        "targets": {
+                            "browsers": ["last 2 versions", "safari >= 7"]
+                        }
+                    }]
+                ]
+            })
+        )
+        .pipe(uglify('scripts.min.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('lib', function() {
     return gulp.src('src/lib/*.js')
-    .pipe(rigger())
-    .pipe(gulp.dest('dist/lib'))
-    .pipe(browserSync.reload({stream: true}));
+        .pipe(rigger())
+        .pipe(gulp.dest('dist/lib'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('img', function() {
@@ -110,7 +104,6 @@ gulp.task('fonts', function() {
 
 gulp.task('watch', function() {
     gulp.watch('src/html/**/*.html', ['html'], browserSync.reload);
-    gulp.watch('src/css/**/*.css', ['css'], browserSync.reload);
     gulp.watch('src/sass/**/*.scss', ['sass'], browserSync.reload);
     gulp.watch('src/js/**/*.js', ['js'], browserSync.reload);
     gulp.watch('src/js/**/*.js', ['lib'], browserSync.reload);
